@@ -1,6 +1,6 @@
-'From Cuis 6.0 [latest update: #5671] on 14 March 2023 at 10:43:30 am'!
+'From Cuis 6.0 [latest update: #5671] on 14 March 2023 at 11:09:23 am'!
 'Description '!
-!provides: 'Crypto' 1 1!
+!provides: 'Crypto' 1 2!
 SystemOrganization addCategory: 'Crypto-Core'!
 SystemOrganization addCategory: 'Crypto-Collections'!
 SystemOrganization addCategory: 'Crypto-Core-Tests'!
@@ -36,13 +36,13 @@ Error subclass: #CryptographyError
 CryptographyError class
 	instanceVariableNames: ''!
 
-!classDefinition: #OrderedWeakIdentityKeyDictionaryTest category: 'Crypto-Collections'!
+!classDefinition: #OrderedWeakIdentityKeyDictionaryTest category: 'Crypto-Core-Tests'!
 TestCase subclass: #OrderedWeakIdentityKeyDictionaryTest
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Crypto-Collections'!
-!classDefinition: 'OrderedWeakIdentityKeyDictionaryTest class' category: 'Crypto-Collections'!
+	category: 'Crypto-Core-Tests'!
+!classDefinition: 'OrderedWeakIdentityKeyDictionaryTest class' category: 'Crypto-Core-Tests'!
 OrderedWeakIdentityKeyDictionaryTest class
 	instanceVariableNames: ''!
 
