@@ -1,9 +1,12 @@
-'From Cuis 6.0 [latest update: #5671] on 14 March 2023 at 11:09:23 am'!
-'Description '!
-!provides: 'Crypto' 1 2!
+'From Cuis 6.0 [latest update: #5671] on 14 March 2023 at 11:30:46 am'!
+'Description Added Register code & tests from Levente Uzonyi''s implementation in Squeak.'!
+!provides: 'Crypto' 1 3!
 SystemOrganization addCategory: 'Crypto-Core'!
 SystemOrganization addCategory: 'Crypto-Collections'!
 SystemOrganization addCategory: 'Crypto-Core-Tests'!
+SystemOrganization addCategory: 'Crypto-Registers-Core'!
+SystemOrganization addCategory: 'Crypto-Collections-Tests'!
+SystemOrganization addCategory: 'Crypto-Registers-Tests'!
 
 
 !classDefinition: #OrderedWeakIdentityKeyDictionary category: 'Crypto-Collections'!
@@ -36,14 +39,84 @@ Error subclass: #CryptographyError
 CryptographyError class
 	instanceVariableNames: ''!
 
-!classDefinition: #OrderedWeakIdentityKeyDictionaryTest category: 'Crypto-Core-Tests'!
+!classDefinition: #OrderedWeakIdentityKeyDictionaryTest category: 'Crypto-Collections-Tests'!
 TestCase subclass: #OrderedWeakIdentityKeyDictionaryTest
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Crypto-Core-Tests'!
-!classDefinition: 'OrderedWeakIdentityKeyDictionaryTest class' category: 'Crypto-Core-Tests'!
+	category: 'Crypto-Collections-Tests'!
+!classDefinition: 'OrderedWeakIdentityKeyDictionaryTest class' category: 'Crypto-Collections-Tests'!
 OrderedWeakIdentityKeyDictionaryTest class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGRegisterTest category: 'Crypto-Registers-Tests'!
+TestCase subclass: #RGRegisterTest
+	instanceVariableNames: 'random'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Tests'!
+!classDefinition: 'RGRegisterTest class' category: 'Crypto-Registers-Tests'!
+RGRegisterTest class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGSixtyFourBitRegisterTest category: 'Crypto-Registers-Tests'!
+RGRegisterTest subclass: #RGSixtyFourBitRegisterTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Tests'!
+!classDefinition: 'RGSixtyFourBitRegisterTest class' category: 'Crypto-Registers-Tests'!
+RGSixtyFourBitRegisterTest class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGSixtyFourBitRegisterTest32 category: 'Crypto-Registers-Tests'!
+RGSixtyFourBitRegisterTest subclass: #RGSixtyFourBitRegisterTest32
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Tests'!
+!classDefinition: 'RGSixtyFourBitRegisterTest32 class' category: 'Crypto-Registers-Tests'!
+RGSixtyFourBitRegisterTest32 class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGSixtyFourBitRegisterTest64 category: 'Crypto-Registers-Tests'!
+RGSixtyFourBitRegisterTest subclass: #RGSixtyFourBitRegisterTest64
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Tests'!
+!classDefinition: 'RGSixtyFourBitRegisterTest64 class' category: 'Crypto-Registers-Tests'!
+RGSixtyFourBitRegisterTest64 class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGThirtyTwoBitRegisterTest category: 'Crypto-Registers-Tests'!
+RGRegisterTest subclass: #RGThirtyTwoBitRegisterTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Tests'!
+!classDefinition: 'RGThirtyTwoBitRegisterTest class' category: 'Crypto-Registers-Tests'!
+RGThirtyTwoBitRegisterTest class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGThirtyTwoBitRegisterTest32 category: 'Crypto-Registers-Tests'!
+RGThirtyTwoBitRegisterTest subclass: #RGThirtyTwoBitRegisterTest32
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Tests'!
+!classDefinition: 'RGThirtyTwoBitRegisterTest32 class' category: 'Crypto-Registers-Tests'!
+RGThirtyTwoBitRegisterTest32 class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGThirtyTwoBitRegisterTest64 category: 'Crypto-Registers-Tests'!
+RGThirtyTwoBitRegisterTest subclass: #RGThirtyTwoBitRegisterTest64
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Tests'!
+!classDefinition: 'RGThirtyTwoBitRegisterTest64 class' category: 'Crypto-Registers-Tests'!
+RGThirtyTwoBitRegisterTest64 class
 	instanceVariableNames: ''!
 
 !classDefinition: #BlockCipher category: 'Crypto-Core'!
@@ -126,6 +199,76 @@ Object subclass: #CryptographyTestCase
 CryptographyTestCase class
 	instanceVariableNames: ''!
 
+!classDefinition: #RGRegister category: 'Crypto-Registers-Core'!
+Object subclass: #RGRegister
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Core'!
+!classDefinition: 'RGRegister class' category: 'Crypto-Registers-Core'!
+RGRegister class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGSixtyFourBitRegister category: 'Crypto-Registers-Core'!
+RGRegister subclass: #RGSixtyFourBitRegister
+	instanceVariableNames: ''
+	classVariableNames: 'ClassForPlatform'
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Core'!
+!classDefinition: 'RGSixtyFourBitRegister class' category: 'Crypto-Registers-Core'!
+RGSixtyFourBitRegister class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGSixtyFourBitRegister32 category: 'Crypto-Registers-Core'!
+RGSixtyFourBitRegister subclass: #RGSixtyFourBitRegister32
+	instanceVariableNames: 'hi mid low'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Core'!
+!classDefinition: 'RGSixtyFourBitRegister32 class' category: 'Crypto-Registers-Core'!
+RGSixtyFourBitRegister32 class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGSixtyFourBitRegister64 category: 'Crypto-Registers-Core'!
+RGSixtyFourBitRegister subclass: #RGSixtyFourBitRegister64
+	instanceVariableNames: 'hi low'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Core'!
+!classDefinition: 'RGSixtyFourBitRegister64 class' category: 'Crypto-Registers-Core'!
+RGSixtyFourBitRegister64 class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGThirtyTwoBitRegister category: 'Crypto-Registers-Core'!
+RGRegister subclass: #RGThirtyTwoBitRegister
+	instanceVariableNames: ''
+	classVariableNames: 'ClassForPlatform'
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Core'!
+!classDefinition: 'RGThirtyTwoBitRegister class' category: 'Crypto-Registers-Core'!
+RGThirtyTwoBitRegister class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGThirtyTwoBitRegister32 category: 'Crypto-Registers-Core'!
+RGThirtyTwoBitRegister subclass: #RGThirtyTwoBitRegister32
+	instanceVariableNames: 'hi low'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Core'!
+!classDefinition: 'RGThirtyTwoBitRegister32 class' category: 'Crypto-Registers-Core'!
+RGThirtyTwoBitRegister32 class
+	instanceVariableNames: ''!
+
+!classDefinition: #RGThirtyTwoBitRegister64 category: 'Crypto-Registers-Core'!
+RGThirtyTwoBitRegister subclass: #RGThirtyTwoBitRegister64
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Crypto-Registers-Core'!
+!classDefinition: 'RGThirtyTwoBitRegister64 class' category: 'Crypto-Registers-Core'!
+RGThirtyTwoBitRegister64 class
+	instanceVariableNames: ''!
+
 
 !OrderedWeakIdentityKeyDictionary commentStamp: 'rabbt 3/14/2023 10:35:06' prior: 0!
 | dict |
@@ -139,6 +282,18 @@ Abstract class for blockmode ciphers (those which encrypt/decrypt more than 1 by
 
 !CTR commentStamp: 'cmm 5/11/2006 22:33' prior: 0!
 This CTR mode implementation was guided by	Nils Ferguson, Bruce Schneier.  Pratical Cryptography.  	Wiley, 2003.	pp. 75-82, 111-127.With CTR, my initialVector is partitioned into a nonce and a counter ("i" in the book).  My blockSize, 128-bits, are available to accommodate both of these "fields".  The two of them combined together form my #initialVector (IV).  The book suggests the nonce portion used as a message-number used also in sequencing messages of a secure-channel (chapter 8).  The overall requirement is that the same initialVector (i.e., counter+nonce combination) never be used twice for this key (instance).  The counter is re-set to 1 each time the nonce is set.If you run out of counter, I signal a CryptographyError.!
+
+!RGSixtyFourBitRegister32 commentStamp: '<historical>' prior: 0!
+I represent a 64-bit register. An instance of me can hold any non-negative integer in the range [0..(2^64 - 1)]. Operations are performed on my contents in place, like a hardware register, and results are always modulo 2^64. All operations avoid LargeInteger arithmetic on 64-bit Spur VMs (assuming 61-bit SmallIntegers).I can be used to implement algorithms designed for 64-bit arithmetic.!
+
+!RGSixtyFourBitRegister64 commentStamp: '<historical>' prior: 0!
+I represent a 64-bit register. An instance of me can hold any non-negative integer in the range [0..(2^64 - 1)]. Operations are performed on my contents in place, like a hardware register, and results are always modulo 2^64. All operations avoid LargeInteger arithmetic on 64-bit Spur VMs (assuming 61-bit SmallIntegers).I can be used to implement algorithms designed for 64-bit arithmetic.!
+
+!RGThirtyTwoBitRegister32 commentStamp: '<historical>' prior: 0!
+I represent a 32-bit register. An instance of me can hold any non-negative integer in the range [0..(2^32 - 1)]. Operations are performed on my contents in place, like a hardware register, and results are always modulo 2^32. All operations avoid LargeInteger arithmetic as much as possible.I'm mainly used by the SecureHashAlgorithm class, but I can be used for implementing other algorithms designed for 32-bit arithmetic. For examble George Marsaglia's Xorshift PRNG from http://www.jstatsoft.org/v08/i14/paper :"Internal state."x := ThirtyTwoBitRegister fromInteger: 123456789.y := ThirtyTwoBitRegister fromInteger: 362436069.z := ThirtyTwoBitRegister fromInteger: 521288629.w := ThirtyTwoBitRegister fromInteger: 88675123."Temporaries."t := ThirtyTwoBitRegister new.temp := nil."The algorithm: t=(x^(x<<11));x=y;y=z;z=w; return( w=(w^(w>>19))ˆ(t^(t>>8)) );"xorShift128 := [	"t=(x^(x<<11));"	t		loadFrom: x;		<< 11;		bitXor: x.	"x=y;y=z;z=w;"	temp := x.	x := y.	y := z.	z := w.	"w=(w^(w>>19))ˆ(t^(t>>8))"	w := temp.	w		loadFrom: z;		>> 19;		bitXor: z;		bitXor: t.	t >> 8.	w bitXor: t.	"Truncate to 30 bits."	(w hi bitShift: 14) bitXor: w low ].The code is about 9.5x faster than an implementation using LargeIntegers:"Implementation using LargeIntegers."x := 123456789.y := 362436069.z := 521288629.w := 88675123.largeIntegerXorShift128 := [	| t |	t := ((x bitAnd: 16r1FFFFF) bitShift: 11) bitXor: x.	x := y.	y := z.	z := w.	w := (((w bitShift: -19) bitXor: w) bitXor: t) bitXor: (t bitShift: -8) ].xorShift128 bench. '4,990,000 per second. 201 nanoseconds per run.'.largeIntegerXorShift128 bench. '529,000 per second. 1.89 microseconds per run.'.!
+
+!RGThirtyTwoBitRegister64 commentStamp: '<historical>' prior: 0!
+I represent a 32-bit register. An instance of me can hold any non-negative integer in the range [0..(2^32 - 1)]. Operations are performed on my contents in place, like a hardware register, and results are always modulo 2^32. All operations avoid LargeInteger arithmetic as much as possible.I'm mainly used by the SecureHashAlgorithm class, but I can be used for implementing other algorithms designed for 32-bit arithmetic. For examble George Marsaglia's Xorshift PRNG from http://www.jstatsoft.org/v08/i14/paper :"Internal state."x := ThirtyTwoBitRegister fromInteger: 123456789.y := ThirtyTwoBitRegister fromInteger: 362436069.z := ThirtyTwoBitRegister fromInteger: 521288629.w := ThirtyTwoBitRegister fromInteger: 88675123."Temporaries."t := ThirtyTwoBitRegister new.temp := nil."The algorithm: t=(x^(x<<11));x=y;y=z;z=w; return( w=(w^(w>>19))ˆ(t^(t>>8)) );"xorShift128 := [	"t=(x^(x<<11));"	t		loadFrom: x;		<< 11;		bitXor: x.	"x=y;y=z;z=w;"	temp := x.	x := y.	y := z.	z := w.	"w=(w^(w>>19))ˆ(t^(t>>8))"	w := temp.	w		loadFrom: z;		>> 19;		bitXor: z;		bitXor: t.	t >> 8.	w bitXor: t.	"Truncate to 30 bits."	(w hi bitShift: 14) bitXor: w low ].The code is about 9.5x faster than an implementation using LargeIntegers:"Implementation using LargeIntegers."x := 123456789.y := 362436069.z := 521288629.w := 88675123.largeIntegerXorShift128 := [	| t |	t := ((x bitAnd: 16r1FFFFF) bitShift: 11) bitXor: x.	x := y.	y := z.	z := w.	w := (((w bitShift: -19) bitXor: w) bitXor: t) bitXor: (t bitShift: -8) ].xorShift128 bench. '4,990,000 per second. 201 nanoseconds per run.'.largeIntegerXorShift128 bench. '529,000 per second. 1.89 microseconds per run.'.!
 
 !OrderedWeakIdentityKeyDictionary methodsFor: 'accessing' stamp: 'rabbt 3/14/2023 10:30:47'!
 keysSortedSafely
@@ -195,6 +350,132 @@ testDictionary
 		self assert: ((dict findElementOrNil: (dict keyAtValue: (dict add: (i -> Object new)) value)) > 0)].
 	self assert: true.
 	! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 2/12/2018 23:48'!
+testAddition	| highestValue |	highestValue := self highestValue.	self		assertBinaryRegisterOperation: [ :rx :ry | rx += ry ]		gives: [ :x :y | x + y bitAnd: highestValue ]		times: 10000! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 10/9/2016 04:37'!
+testBitAnd	self		assertBinaryRegisterOperation: [ :rx :ry | rx bitAnd: ry ]		gives: [ :x :y | x bitAnd: y ]		times: 10000! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 2/12/2018 23:48'!
+testBitInvert	| highestValue |	highestValue := self highestValue.	self		assertUnaryRegisterOperation: [ :rx | rx bitInvert ]		gives: [ :x | x bitXor: highestValue ]		times: 10000! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 10/9/2016 04:37'!
+testBitOr	self		assertBinaryRegisterOperation: [ :rx :ry | rx bitOr: ry ]		gives: [ :x :y | x bitOr: y ]		times: 10000! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 10/9/2016 04:37'!
+testBitXor	self		assertBinaryRegisterOperation: [ :rx :ry | rx bitXor: ry ]		gives: [ :x :y | x bitXor: y ]		times: 10000! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 2/12/2018 23:47'!
+testLeftRotateBy	| bitCount highestValue |	bitCount := self bitCount.	highestValue := self highestValue.	-1 - bitCount to: bitCount + 1 do: [ :shift |		self			assertUnaryRegisterOperation: [ :rx | rx leftRotateBy: shift ]			gives: [ :x | 				| actualShift |				actualShift := shift \\ bitCount.				(x << actualShift bitOr: x >> (bitCount - actualShift)) bitAnd: highestValue ]			times: 1000 ]! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 2/12/2018 23:49'!
+testLeftShift	| bitCount highestValue |	bitCount := self bitCount.	highestValue := self highestValue.	0 to: bitCount + 1 do: [ :shift |		self			assertUnaryRegisterOperation: [ :rx | rx << shift ]			gives: [ :x | x << shift bitAnd: highestValue ]			times: 1000 ]! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 2/12/2018 23:49'!
+testMultiplication	| highestValue |	highestValue := self highestValue.	self		assertBinaryRegisterOperation: [ :rx :ry | rx *= ry ]		gives: [ :x :y | x * y bitAnd: self highestValue ]		times: 10000! !
+
+!RGRegisterTest methodsFor: 'tests - accumulator ops' stamp: 'ul 2/12/2018 23:50'!
+testRightShift	| bitCount highestValue |	bitCount := self bitCount.	highestValue := self highestValue.	0 to: bitCount + 1 do: [ :shift |		self			assertUnaryRegisterOperation: [ :rx | rx >> shift ]			gives: [ :x | x >> shift bitAnd: highestValue ]			times: 1000 ]! !
+
+!RGRegisterTest methodsFor: 'tests' stamp: 'ul 2/13/2018 01:30'!
+testAsSignedInteger	| bitCount rx signedOffset |	bitCount := self bitCount.	rx := self registerClass new.	signedOffset := 1 << bitCount.	10000 timesRepeat: [		| value expectedResult |		value := self nextRandom.		expectedResult := value highBit = bitCount			ifTrue: [ value - signedOffset ]			ifFalse: [ value ].		rx load: value.		self assert: expectedResult equals: rx asSignedInteger ] ! !
+
+!RGRegisterTest methodsFor: 'tests' stamp: 'ul 10/9/2016 04:37'!
+testLoad	1000 timesRepeat: [		| value |		value := self nextRandom.		self			assertUnaryRegisterOperation: [ :rx | rx load: value ]			gives: [ :x | value ]			times: 1 ]! !
+
+!RGRegisterTest methodsFor: 'tests' stamp: 'ul 10/9/2016 04:37'!
+testLoadFrom	self		assertBinaryRegisterOperation: [ :rx :ry | rx loadFrom: ry ]		gives: [ :x :y | y ]		times: 10000! !
+
+!RGRegisterTest methodsFor: 'tests' stamp: 'ul 2/20/2018 22:26'!
+testLoadFromAtBigEndian	| bitCount |	bitCount := self bitCount.	#(true false) do: [ :bigEndian |		1000 timesRepeat: [			| value bytes |			value := self nextRandom.			bytes := ByteArray new: 40.			1 to: bytes size by: bitCount // 8 do: [ :index |				bitCount = 32					ifTrue: [ bytes unsignedLongAt: index put: value bigEndian: bigEndian ]					ifFalse: [ bytes unsignedLong64At: index put: value bigEndian: bigEndian ].				self					assertUnaryRegisterOperation: [ :rx | rx loadFrom: bytes at: index bigEndian: bigEndian ]					gives: [ :x | value ]					times: 1 ] ] ]! !
+
+!RGRegisterTest methodsFor: 'tests' stamp: 'ul 2/13/2018 20:32'!
+testPrintOn	| stream rx |	stream := (String new: 10) writeStream.	rx := self registerClass new.		10000 timesRepeat: [		| value |		value := self nextRandom.		rx load: value.		stream resetToStart.		rx printOn: stream.		self assert: 'R:16r', (value printStringBase: 16) equals: stream contents ] ! !
+
+!RGRegisterTest methodsFor: 'tests - comparison' stamp: 'ul 10/9/2016 04:37'!
+testEquals	self		assertComparisonRegisterOperation: [ :rx :ry | rx = ry ]		gives: [ :x :y | x = y ]		times: 1000! !
+
+!RGRegisterTest methodsFor: 'tests - comparison' stamp: 'ul 10/9/2016 04:37'!
+testGreater	self		assertComparisonRegisterOperation: [ :rx :ry | rx > ry ]		gives: [ :x :y | x > y ]		times: 1000! !
+
+!RGRegisterTest methodsFor: 'tests - comparison' stamp: 'ul 10/9/2016 04:37'!
+testGreaterOrEqual	self		assertComparisonRegisterOperation: [ :rx :ry | rx >= ry ]		gives: [ :x :y | x >= y ]		times: 1000! !
+
+!RGRegisterTest methodsFor: 'tests - comparison' stamp: 'ul 10/9/2016 04:37'!
+testLess	self		assertComparisonRegisterOperation: [ :rx :ry | rx < ry ]		gives: [ :x :y | x < y ]		times: 1000! !
+
+!RGRegisterTest methodsFor: 'tests - comparison' stamp: 'ul 10/9/2016 04:37'!
+testLessOrEqual	self		assertComparisonRegisterOperation: [ :rx :ry | rx <= ry ]		gives: [ :x :y | x <= y ]		times: 1000! !
+
+!RGRegisterTest methodsFor: 'helpers' stamp: 'ul 9/30/2017 23:59'!
+assertBinaryRegisterOperation: registerOperationBlock gives: integerOperationBlock times: n	| rx ry |	rx := self registerClass new.	ry := rx copy.	n timesRepeat: [		| x y expectedResult |		x := self nextRandom.		y := self nextRandom.		expectedResult := integerOperationBlock value: x value: y .		rx load: x.		ry load: y.		registerOperationBlock value: rx value: ry.		self assert: expectedResult equals: rx asInteger ]! !
+
+!RGRegisterTest methodsFor: 'helpers' stamp: 'ul 9/30/2017 23:59'!
+assertComparisonRegisterOperation: registerOperationBlock gives: integerOperationBlock times: n	| rx ry |	rx := self registerClass new.	ry := rx copy.	n timesRepeat: [		| x y expectedResult actualResult |		x := self nextRandom.		y := self nextRandom.		expectedResult := integerOperationBlock value: x value: y .		rx load: x.		ry load: y.		actualResult := registerOperationBlock value: rx value: ry.		self assert: expectedResult equals: actualResult ]! !
+
+!RGRegisterTest methodsFor: 'helpers' stamp: 'ul 9/30/2017 23:59'!
+assertUnaryRegisterOperation: registerOperationBlock gives: integerOperationBlock times: n	| rx |	rx := self registerClass new.	n timesRepeat: [		| x expectedResult |		x := self nextRandom.		expectedResult := integerOperationBlock value: x.		rx load: x.		registerOperationBlock value: rx.		self assert: expectedResult equals: rx asInteger ]! !
+
+!RGRegisterTest methodsFor: 'helpers' stamp: 'ul 2/12/2018 23:41'!
+nextRandom	"Return the next random X-bit unsigned integer value."	^self subclassResponsibility! !
+
+!RGRegisterTest methodsFor: 'accessing' stamp: 'ul 2/12/2018 23:45'!
+bitCount	"The number of bits the register holds."	self subclassResponsibility! !
+
+!RGRegisterTest methodsFor: 'accessing' stamp: 'ul 2/12/2018 23:46'!
+highestValue	"The highest value the register can hold."	^(1 bitShift: self bitCount) - 1! !
+
+!RGRegisterTest methodsFor: 'accessing' stamp: 'ul 9/30/2017 23:58'!
+registerClass	self subclassResponsibility! !
+
+!RGRegisterTest methodsFor: 'running' stamp: 'rabbt 3/14/2023 11:23:33'!
+setUp	random := Random seed:  1738141148 . "36rSqueak"! !
+
+!RGRegisterTest class methodsFor: 'testing' stamp: 'ul 2/12/2018 23:53'!
+isAbstract	^self name == #RGRegisterTest! !
+
+!RGSixtyFourBitRegisterTest methodsFor: 'tests' stamp: 'ul 2/12/2018 23:57'!
+testHiWord	self		assertUnaryRegisterOperation: [ :rx | rx load: rx hiWord ]		gives: [ :x | x bitShift: -32 ]		times: 1000! !
+
+!RGSixtyFourBitRegisterTest methodsFor: 'helpers' stamp: 'rabbt 3/14/2023 11:23:46'!
+nextRandom	"Return the next random 64-bit unsigned integer value."	^(random nextInteger: 16r10000000000000000) - 1! !
+
+!RGSixtyFourBitRegisterTest methodsFor: 'helpers' stamp: 'ul 2/12/2018 23:58'!
+testLowWord	self		assertUnaryRegisterOperation: [ :rx | rx load: rx lowWord ]		gives: [ :x | x bitAnd: 16rFFFFFFFF ]		times: 1000! !
+
+!RGSixtyFourBitRegisterTest methodsFor: 'accessing' stamp: 'ul 2/12/2018 23:54'!
+bitCount	"The number of bits the register holds."	^64! !
+
+!RGSixtyFourBitRegisterTest class methodsFor: 'as yet unclassified' stamp: 'ul 2/12/2018 23:53'!
+isAbstract	^self name == #RGSixtyFourBitRegisterTest! !
+
+!RGSixtyFourBitRegisterTest32 methodsFor: 'accessing' stamp: 'ul 2/12/2018 23:39'!
+registerClass	^RGSixtyFourBitRegister32! !
+
+!RGSixtyFourBitRegisterTest64 methodsFor: 'accessing' stamp: 'ul 2/12/2018 23:39'!
+registerClass	^RGSixtyFourBitRegister64! !
+
+!RGThirtyTwoBitRegisterTest methodsFor: 'tests' stamp: 'ul 2/12/2018 23:55'!
+testHi	self		assertUnaryRegisterOperation: [ :rx | rx load: rx hi ]		gives: [ :x | x bitShift: -16 ]		times: 1000! !
+
+!RGThirtyTwoBitRegisterTest methodsFor: 'tests' stamp: 'ul 2/12/2018 23:55'!
+testLow	self		assertUnaryRegisterOperation: [ :rx | rx load: rx low ]		gives: [ :x | x bitAnd: 16rFFFF ]		times: 1000! !
+
+!RGThirtyTwoBitRegisterTest methodsFor: 'helpers' stamp: 'rabbt 3/14/2023 11:24:06'!
+nextRandom	"Return the next random 32-bit unsigned integer value."	^(random nextInteger: 16r100000000) - 1! !
+
+!RGThirtyTwoBitRegisterTest methodsFor: 'accessing' stamp: 'ul 2/12/2018 23:54'!
+bitCount	"The number of bits the register holds."	^32! !
+
+!RGThirtyTwoBitRegisterTest class methodsFor: 'as yet unclassified' stamp: 'ul 2/12/2018 23:53'!
+isAbstract	^self name == #RGThirtyTwoBitRegisterTest! !
+
+!RGThirtyTwoBitRegisterTest32 methodsFor: 'accessing' stamp: 'ul 2/12/2018 23:52'!
+registerClass	^RGThirtyTwoBitRegister32! !
+
+!RGThirtyTwoBitRegisterTest64 methodsFor: 'accessing' stamp: 'ul 2/12/2018 23:52'!
+registerClass	^RGThirtyTwoBitRegister64! !
 
 !BlockCipher methodsFor: 'accessing' stamp: 'len 8/9/2002 13:05'!
 blockSize	^ self class blockSize! !
@@ -439,6 +720,357 @@ on: aCipherMode	^ self new setCipherMode: aCipherMode! !
 !CryptographyTestCase class methodsFor: 'testing' stamp: 'rabbt 9/30/2022 14:41'!
 runAllCryptoTests	"CryptographyTestCase runAllCryptoTests"	| testBlock |	testBlock := [		{ TestSuite testsPassInCategory: 'Registers-Tests'.		TestSuite testsPassInCategory: 'TraceMonitor'.		TestSuite testsPassInCategory: 'CryptographyHashingTests'.		TestSuite testsPassInCategory: 'CryptographyRandomTests'.		TestSuite testsPassInCategory: 'CryptographyCiphersTests'.		TestSuite testsPassInCategory: 'CryptographySignaturesTests'.		TestSuite testsPassInCategory: 'CryptographyKeyExchangeTests'.		TestSuite testsPassInCategory: 'CryptographyArchiveTests'.		TestSuite testsPassInCategory: 'CryptographyX509Tests'.}].	^ testBlock value.! !
 
+!RGRegister methodsFor: 'loading' stamp: 'ul 2/20/2018 22:39'!
+loadFrom: aByteArray at: index bigEndian: bigEndian	"Load my value from the ByteArray starting at the given index with endianness based on the parameter."		self subclassResponsibility! !
+
+!RGRegister methodsFor: 'printing' stamp: 'ul 10/9/2016 00:54'!
+printOn: aStream	"Print my contents in hex with a leading 'R' to show that it is a register object being printed."	aStream nextPutAll: 'R:'.	self asInteger storeOn: aStream base: 16! !
+
+!RGRegister methodsFor: 'storing' stamp: 'ul 2/20/2018 22:39'!
+storeInto: aByteArray at: index bigEndian: bigEndian	"Store my value into the ByteArray starting at the given index with endianness based on the parameter."		self subclassResponsibility! !
+
+!RGRegister class methodsFor: 'testing' stamp: 'ul 2/13/2018 00:55'!
+is64BitPlatform	^SmallInteger maxVal highBit >= 60! !
+
+!RGRegister class methodsFor: 'instance creation' stamp: 'ul 2/20/2018 22:25'!
+fromByteArray: aByteArray at: startIndex bigEndian: bigEndian	"Answer a new instance whose initial contents is copied from next four bytes from aByteArray starting at startIndex."	^self basicNew loadFrom: aByteArray at: startIndex bigEndian: bigEndian! !
+
+!RGRegister class methodsFor: 'instance creation' stamp: 'ul 2/13/2018 20:20'!
+fromInteger: aPositiveInteger	"Answer a new instance whose initial contents is copied from aPositiveInteger.	It is required that aPositiveInteger has no more bits than the register subclass can hold."	^self basicNew load: aPositiveInteger! !
+
+!RGSixtyFourBitRegister class methodsFor: 'system startup' stamp: 'ul 2/18/2018 18:19'!
+startUp: resuming	"Recalculate the class for platform when the image starts, so that converted images will have their values set properly."	resuming ifTrue: [ self initialize ]! !
+
+!RGSixtyFourBitRegister class methodsFor: 'class initialization' stamp: 'ul 2/18/2018 18:20'!
+initialize	ClassForPlatform := self is64BitPlatform		ifTrue: [ RGSixtyFourBitRegister64 ]		ifFalse: [ RGSixtyFourBitRegister32 ].	Smalltalk addToStartUpList: self! !
+
+!RGSixtyFourBitRegister class methodsFor: 'instance creation' stamp: 'ul 2/13/2018 20:19'!
+newForPlatform	^ClassForPlatform new! !
+
+!RGSixtyFourBitRegister class methodsFor: 'instance creation' stamp: 'ul 2/13/2018 20:21'!
+newForPlatformWith: aPositiveInteger	"Answer a new instance whose initial contents is copied from aPositiveInteger.	It is required that aPositiveInteger has no more than 64 bits."	^ClassForPlatform basicNew load: aPositiveInteger! !
+
+!RGSixtyFourBitRegister class methodsFor: 'instance creation' stamp: 'ul 2/20/2018 22:26'!
+newForPlayformFromByteArray: aByteArray at: startIndex bigEndian: bigEndian	"Answer a new instance whose initial contents is copied from next four bytes from aByteArray starting at startIndex..	Convention is Most Significant Byte first (aka big endian)."	^ClassForPlatform basicNew loadFrom: aByteArray at: startIndex bigEndian: bigEndian! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accessing' stamp: 'ul 10/9/2016 00:20'!
+hi	^hi! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accessing' stamp: 'ul 10/1/2017 03:17'!
+hiWord	^(hi bitShift: 12) bitOr: (mid bitShift: -10)! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accessing' stamp: 'ul 10/1/2017 00:02'!
+load: anInteger	"Set my contents to the value of given integer."	(anInteger negative or: [ anInteger digitLength > 8 ]) ifTrue: [		self error: 'out of range: ', anInteger printString ].	low := anInteger bitAnd: 16r3FFFFF.	mid := (anInteger bitShift: -22) bitAnd: 16r3FFFFF.	hi := anInteger bitShift: -44! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accessing' stamp: 'ul 9/30/2017 23:50'!
+loadFrom: aSixtyFourBitRegister32	"Set my contents from the given SixtyFourBitRegister."	hi := aSixtyFourBitRegister32 hi.	mid := aSixtyFourBitRegister32 mid.	low := aSixtyFourBitRegister32 low! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accessing' stamp: 'ul 10/9/2016 00:21'!
+low	^low! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accessing' stamp: 'ul 10/1/2017 00:06'!
+low: newLow mid: newMid hi: newHi	low := newLow.	mid := newMid.	hi := newHi	! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accessing' stamp: 'ul 10/1/2017 03:18'!
+lowWord	^((mid bitAnd: 16r3FF) bitShift: 22) bitOr: low! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accessing' stamp: 'ul 10/1/2017 00:01'!
+mid	^mid! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 2/18/2018 18:04'!
+*= aSixtyFourBitRegister	"Replace my contents with the product of the given register and my current contents."	| mul |	self flag: #todo.	"TODO: execute the following operations without introducing LargeIntegers.		otherLow := aSixtyFourBitRegister low.		otherMid := aSixtyFourBitRegister mid.		otherHi := aSixtyFourBitRegister hi.		newLow := low * otherLow.		newMid := low * otherMid + (mid * otherLow) + (newLow bitShift: -22).		hi := mid * otherMid + (hi * otherLow) + (low * otherHi) + (newMid bitShift: -22) bitAnd: 16rFFFFF.		mid := newMid bitAnd: 16r3FFFFF.		low := newLow bitAnd: 16r3FFFFF.	"	mul := ((((hi bitShift: 22) bitOr: mid) bitShift: 22) bitOr: low) * 		((((aSixtyFourBitRegister hi bitShift: 22) bitOr: aSixtyFourBitRegister mid) bitShift: 22) bitOr: aSixtyFourBitRegister low).	low := mul bitAnd: 16r3FFFFF.	mid := (mul bitShift: -22) bitAnd: 16r3FFFFF.	hi := (mul bitShift: -44) bitAnd: 16rFFFFF.! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 9/30/2017 23:57'!
++= aSixtyFourBitRegister32	"Replace my contents with the sum of the given register and my current contents."	| temp |	low := (temp := low + aSixtyFourBitRegister32 low) bitAnd: 16r3FFFFF.	mid := (temp := mid + aSixtyFourBitRegister32 mid + (temp bitShift: -22)) bitAnd: 16r3FFFFF.	hi := hi + aSixtyFourBitRegister32 hi + (temp bitShift: -22) bitAnd: 16rFFFFF! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 10/1/2017 03:11'!
+<< anInteger	"Unsigned left shift."	| bitCount |	bitCount := anInteger.	bitCount >= 64 ifTrue: [		hi := mid := low := 0.		^self ].	bitCount >= 44 		ifTrue: [			hi := low bitAnd: 16rFFFFF.			low := mid := 0.			bitCount := bitCount - 44 ]		ifFalse: [			bitCount >= 22 ifTrue: [				hi := mid bitAnd: 16rFFFFF.				mid := low.				low := 0.				bitCount := bitCount - 22 ] ].	[ bitCount >= 8 ] whileTrue: [		hi := ((hi bitShift: 8) bitAnd: 16rFFFFF) bitOr: (mid bitShift: -14).		mid := ((mid bitShift: 8) bitAnd: 16r3FFFFF) bitOr: (low bitShift: -14).		low := (low bitShift: 8) bitAnd: 16r3FFFFF.		bitCount := bitCount - 8 ].	bitCount >= 1 ifTrue: [		hi := ((hi bitShift: bitCount) bitAnd: 16rFFFFF) bitOr: (mid bitShift: bitCount - 22).		mid := ((mid bitShift: bitCount) bitAnd: 16r3FFFFF) bitOr: (low bitShift: bitCount - 22).		low := (low bitShift: bitCount) bitAnd: 16r3FFFFF ]! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 10/1/2017 00:44'!
+>> anInteger	"Unsigned right shift."	| shift |	shift := 0 - anInteger.	shift <= -44 ifTrue: [		low := hi bitShift: shift + 44.		hi := mid := 0.		^self ].	shift <= -22 ifTrue: [		low := mid.		mid := hi.		hi := 0.		shift := shift + 22 ].	shift <= -14 ifTrue: [ "14-21"		low := (low bitShift: shift) bitOr: ((mid bitShift: shift + 22) bitAnd: 16r3FFFFF).		mid := (mid bitShift: shift) bitOr: ((hi bitShift: shift + 22) bitAnd: 16r3FFFFF).		hi := hi bitShift: shift.		^self ].	shift <= -5 ifTrue: [ "5-13"		low := (low bitShift: shift) bitOr: (((mid bitAnd: 16r1FFF) bitShift: shift + 22) bitAnd: 16r3FFFFF).		mid := (mid bitShift: shift) bitOr: (((hi bitAnd: 16r1FFF) bitShift: shift + 22) bitAnd: 16r3FFFFF).		hi := hi bitShift: shift.		^self ].	shift <= -1 ifTrue: [ "1-4"		low := (low bitShift: shift) bitOr: (((mid bitAnd: 16rF) bitShift: shift + 22) bitAnd: 16r3FFFFF).		mid := (mid bitShift: shift) bitOr: (((hi bitAnd: 16rF) bitShift: shift + 22) bitAnd: 16r3FFFFF).		hi := hi bitShift: shift ]! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 10/1/2017 00:04'!
+bitAnd: aSixtyFourBitRegister32	"Replace my contents with the bitwise AND of the given register and my current contents."	hi := hi bitAnd: aSixtyFourBitRegister32 hi.	mid := mid bitAnd: aSixtyFourBitRegister32 mid.	low := low bitAnd: aSixtyFourBitRegister32 low! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 10/1/2017 00:04'!
+bitInvert	"Replace my contents with the bitwise inverse my current contents."	hi := hi bitXor: 16rFFFFF.	mid := mid bitXor: 16r3FFFFF.	low := low bitXor: 16r3FFFFF.! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 10/1/2017 00:04'!
+bitOr: aSixtyFourBitRegister32	"Replace my contents with the bitwise OR of the given register and my current contents."	hi := hi bitOr: aSixtyFourBitRegister32 hi.	mid := mid bitOr: aSixtyFourBitRegister32 mid.	low := low bitOr: aSixtyFourBitRegister32 low! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 10/1/2017 00:05'!
+bitXor: aSixtyFourBitRegister32	"Replace my contents with the bitwise exclusive OR of the given register and my current contents."	hi := hi bitXor: aSixtyFourBitRegister32 hi.	mid := mid bitXor: aSixtyFourBitRegister32 mid.	low := low bitXor: aSixtyFourBitRegister32 low! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 10/1/2017 03:01'!
+leftRotateBy: bits	"Rotate my contents left by the given number of bits, retaining exactly 64 bits."	"Details: Perform this operation with no LargeInteger arithmetic."	| bitCount temp |	bitCount := bits bitAnd: 63. "Modulo 64. This also makes this method work for negative arguments."	bitCount >= 42		ifTrue: [  "Rotate 22 bits to the right."			temp := low.			low := mid.			mid := ((temp bitAnd: 16r3) bitShift: 20) bitOr: hi.			hi := temp bitShift: -2.			bitCount := bitCount - 42 ]		ifFalse: [ 			bitCount >= 22 ifTrue: [ "Rotate 22 bits to the left."				temp := mid.				mid := low.				low := (hi bitShift: 2) bitOr: (temp bitShift: -20).				hi := temp bitAnd: 16rFFFFF.				bitCount := bitCount - 22 ] ].	"At this point bitCount is at most 21."	[ bitCount >= 8 ] whileTrue: [ "Rotate 8 bits." 		temp := ((hi bitShift: 8) bitAnd: 16rFFFFF) bitOr: (mid bitShift: -14).		mid := ((mid bitShift: 8) bitAnd: 16r3FFFFF) bitOr: (low bitShift: -14).		low := ((low bitShift: 8) bitAnd: 16r3FFFFF) bitOr: (hi bitShift: -12).		hi := temp.		bitCount := bitCount - 8 ].	bitCount >= 1 ifTrue: [ "Rotate 1-7 bits."		temp := ((hi bitShift: bitCount) bitAnd: 16rFFFFF) bitOr: (mid bitShift: bitCount - 22).		mid := ((mid bitShift: bitCount) bitAnd: 16r3FFFFF) bitOr: (low bitShift: bitCount - 22).		low := ((low bitShift: bitCount) bitAnd: 16r3FFFFF) bitOr: (hi bitShift: bitCount - 20).		hi := temp ]! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'converting' stamp: 'ul 10/1/2017 00:03'!
+asInteger	"Answer the integer value of my current contents."	^((hi bitShift: 22) + mid bitShift: 22) + low! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'converting' stamp: 'ul 2/13/2018 01:03'!
+asSignedInteger	"Answer the signed integer value of my current contents."	hi >= 16r80000 ifFalse: [ ^((hi bitShift: 22) + mid bitShift: 22) + low ].	^-1 - (low bitXor: 16r3FFFFF) - ((mid bitXor: 16r3FFFFF) bitShift: 22) - ((hi bitXor: 16rFFFFF) bitShift: 44)! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'comparing' stamp: 'ul 10/1/2017 00:47'!
+< aSixtyFourBitRegister64	hi < aSixtyFourBitRegister64 hi ifTrue: [ ^true ].	hi = aSixtyFourBitRegister64 hi ifFalse: [ ^false ].	mid < aSixtyFourBitRegister64 mid ifTrue: [ ^true ].	mid = aSixtyFourBitRegister64 mid ifFalse: [ ^false ].	low < aSixtyFourBitRegister64 low ifTrue: [ ^true ].	^false! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'comparing' stamp: 'ul 10/1/2017 00:49'!
+<= aSixtyFourBitRegister64	hi < aSixtyFourBitRegister64 hi ifTrue: [ ^true ].	hi = aSixtyFourBitRegister64 hi ifFalse: [ ^false ].	mid < aSixtyFourBitRegister64 mid ifTrue: [ ^true ].	mid = aSixtyFourBitRegister64 mid ifFalse: [ ^false ].	low <= aSixtyFourBitRegister64 low ifTrue: [ ^true ].	^false! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'comparing' stamp: 'ul 10/1/2017 00:48'!
+= anObject	self class == anObject class ifFalse: [ ^false ].	anObject low = low ifFalse: [ ^false ].	anObject mid = mid ifFalse: [ ^false ].	anObject hi = hi ifFalse: [ ^false ].	^true! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'comparing' stamp: 'ul 10/1/2017 00:49'!
+> aSixtyFourBitRegister64	hi > aSixtyFourBitRegister64 hi ifTrue: [ ^true ].	hi = aSixtyFourBitRegister64 hi ifFalse: [ ^false ].	mid > aSixtyFourBitRegister64 mid ifTrue: [ ^true ].	mid = aSixtyFourBitRegister64 mid ifFalse: [ ^false ].	low > aSixtyFourBitRegister64 low ifTrue: [ ^true ].	^false! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'comparing' stamp: 'ul 10/1/2017 00:50'!
+>= aSixtyFourBitRegister64	hi > aSixtyFourBitRegister64 hi ifTrue: [ ^true ].	hi = aSixtyFourBitRegister64 hi ifFalse: [ ^false ].	mid > aSixtyFourBitRegister64 mid ifTrue: [ ^true ].	mid = aSixtyFourBitRegister64 mid ifFalse: [ ^false ].	low >= aSixtyFourBitRegister64 low ifTrue: [ ^true ].	^false! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'comparing' stamp: 'ul 10/1/2017 00:52'!
+hash	^(low hashMultiply bitXor: mid hashMultiply) bitXor: hi hashMultiply! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'storing' stamp: 'ul 2/20/2018 22:38'!
+storeInto: aByteArray at: index bigEndian: bigEndian	bigEndian 		ifTrue: [			aByteArray				at: index put: (hi bitShift: -12);				at: index + 1 put: ((hi bitShift: -4) bitAnd: 16rFF);				at: index + 2 put: (((hi bitAnd: 16rF) bitShift: 4) bitOr: (mid bitShift: -18));				at: index + 3 put: ((mid bitShift: -10) bitAnd: 16rFF);				at: index + 4 put: ((mid bitShift: -2) bitAnd: 16rFF);				at: index + 5 put: (((mid bitAnd: 16r3) bitShift: 6) bitOr: (low bitShift: -16));				at: index + 6 put: ((low bitShift: -8) bitAnd: 16rFF);				at: index + 7 put: (low bitAnd: 16rFF) ]		ifFalse: [			aByteArray				at: index + 7 put: (hi bitShift: -12);				at: index + 6 put: ((hi bitShift: -4) bitAnd: 16rFF);				at: index + 5 put: (((hi bitAnd: 16rF) bitShift: 4) bitOr: (mid bitShift: -18));				at: index + 4 put: ((mid bitShift: -10) bitAnd: 16rFF);				at: index + 3 put: ((mid bitShift: -2) bitAnd: 16rFF);				at: index + 2 put: (((mid bitAnd: 16r3) bitShift: 6) bitOr: (low bitShift: -16));				at: index + 1 put: ((low bitShift: -8) bitAnd: 16rFF);				at: index put: (low bitAnd: 16rFF) ]! !
+
+!RGSixtyFourBitRegister32 methodsFor: 'loading' stamp: 'ul 2/20/2018 22:36'!
+loadFrom: aByteArray at: index bigEndian: bigEndian	bigEndian		ifTrue: [			mid := aByteArray at: index + 2.			hi := (((aByteArray at: index) bitShift: 8) + (aByteArray at: index + 1) bitShift: 4) + (mid bitShift: -4).			low := aByteArray at: index + 5.			mid := ((((mid bitAnd: 16rF) bitShift: 8) + (aByteArray at: index + 3) bitShift: 8) + (aByteArray at: index + 4) bitShift: 2) + (low bitShift: -6).			low := (((low bitAnd: 16r3F) bitShift: 8) + (aByteArray at: index + 6) bitShift: 8) + (aByteArray at: index + 7) ]		ifFalse: [			mid := aByteArray at: index + 5.			hi := (((aByteArray at: index + 7) bitShift: 8) + (aByteArray at: index + 6) bitShift: 4) + (mid bitShift: -4).			low := aByteArray at: index + 2.			mid := ((((mid bitAnd: 16rF) bitShift: 8) + (aByteArray at: index + 4) bitShift: 8) + (aByteArray at: index + 3) bitShift: 2) + (low bitShift: -6).			low := (((low bitAnd: 16r3F) bitShift: 8) + (aByteArray at: index + 1) bitShift: 8) + (aByteArray at: index) ]! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accessing' stamp: 'ul 10/9/2016 00:20'!
+hi	^hi! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accessing' stamp: 'ul 10/1/2017 03:18'!
+hiWord	^hi! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accessing' stamp: 'ul 10/9/2016 00:20'!
+load: anInteger	"Set my contents to the value of given integer."	(anInteger negative or: [ anInteger digitLength > 8 ]) ifTrue: [		self error: 'out of range: ', anInteger printString ].	low := anInteger bitAnd: 16rFFFFFFFF.	hi := anInteger bitShift: -32! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accessing' stamp: 'ul 10/9/2016 00:20'!
+loadFrom: aSixtyFourBitRegister	"Set my contents from the given SixtyFourBitRegister."	hi := aSixtyFourBitRegister hi.	low := aSixtyFourBitRegister low! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accessing' stamp: 'ul 10/9/2016 00:21'!
+low	^low! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accessing' stamp: 'ul 9/30/2017 22:43'!
+low: newLow hi: newHi	low := newLow.	hi := newHi	! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accessing' stamp: 'ul 10/1/2017 03:18'!
+lowWord	^low! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 9/30/2017 23:49'!
+*= aSixtyFourBitRegister	"Replace my contents with the product of the given register and my current contents."	| otherLow otherHi mul newLow newHi |	otherLow := aSixtyFourBitRegister low.	otherHi := aSixtyFourBitRegister hi.	"Multiply low with otherLow. Process the four highest bits of low separately if necessary to avoid LargeInteger operations."	(low bitShift: -16) * (otherLow bitShift: -16) > 16r0FFFFFFF		ifTrue: [ 			mul := (low bitAnd: 16r0FFFFFFF) * otherLow. "Without the four most significant bits of low."			newLow := mul bitAnd: 16rFFFFFFFF.			newHi := mul bitShift: -32.			mul := (low bitShift: -28) * otherLow. "The two most significant bits of low"			newLow := newLow + ((mul bitAnd: 16rF) bitShift: 28).			newHi := newHi + (mul bitShift: -4) + (newLow bitShift: -32) "Carry from newLow" ]		ifFalse: [			newLow := low * otherLow. "We'll trim newLow at the end of the method."			newHi := newLow bitShift: -32 ].	"Multiply hi with otherLow."	(hi bitShift: -16) * (otherLow bitShift: -16) > 16r0FFFFFFF		ifTrue: [			newHi := newHi + 				((hi bitAnd: 16r0FFFFFFF) * otherLow bitAnd: 16rFFFFFFFF) +				(((hi bitShift: -28) * otherLow bitAnd: 16rF) bitShift: 28) ]		ifFalse: [ newHi := newHi + (hi * otherLow bitAnd: 16rFFFFFFFF) ].	"Multiply low with otherHi."	(low bitShift: -16) * (otherHi bitShift: -16) > 16r0FFFFFFF		ifTrue: [			newHi := newHi + 				((low bitAnd: 16r0FFFFFFF) * otherHi bitAnd: 16rFFFFFFFF) +				(((low bitShift: -28) * otherHi bitAnd: 16rF) bitShift: 28) ]		ifFalse: [ newHi := newHi + (low * otherHi bitAnd: 16rFFFFFFFF) ].	"Truncate and store the results."	hi := newHi bitAnd: 16rFFFFFFFF.	low := newLow bitAnd: 16rFFFFFFFF ! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 9/30/2017 22:47'!
++= aSixtyFourBitRegister	"Replace my contents with the sum of the given register and my current contents."	low := low + aSixtyFourBitRegister low.	hi := hi + aSixtyFourBitRegister hi + (low bitShift: -32) bitAnd: 16rFFFFFFFF.	low := low bitAnd: 16rFFFFFFFF.! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 10/9/2016 14:23'!
+<< anInteger	"Unsigned left shift."	| bitCount |	bitCount := anInteger.	bitCount >= 64 ifTrue: [		hi := low := 0.		^self ].	bitCount >= 32 ifTrue: [		hi := low.		low := 0.		bitCount := bitCount - 32 ].	bitCount >= 29 ifTrue: [		bitCount := bitCount - 29.		hi := ((hi bitAnd: 16r7) bitShift: 29) bitOr: (low bitShift: -3).		low := (low bitAnd: 16r7) bitShift: 29 ].	bitCount >= 1 ifTrue: [		hi := ((hi bitShift: bitCount) bitAnd: 16rFFFFFFFF) bitOr: (low bitShift: bitCount - 32).		low := (low bitShift: bitCount) bitAnd: 16rFFFFFFFF ]! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 10/9/2016 14:24'!
+>> anInteger	"Unsigned right shift."	| bitCount shift |	bitCount := anInteger.	bitCount >= 64 ifTrue: [		hi := low := 0.		^self ].	bitCount >= 32 ifTrue: [		low := hi.		hi := 0.		bitCount := bitCount - 32 ].	bitCount >= 4 ifTrue: [ "Shift 4-31 bits."		shift := 0 - bitCount.		low := (low bitShift: shift) bitOr: ((hi bitShift: shift + 32) bitAnd: 16rFFFFFFFF).		hi := hi bitShift: shift.		^self ].	bitCount >= 1 ifTrue: [ "Shift 1-3 bits."		shift := 0 - bitCount.		low := (low bitShift: shift) bitOr: (((hi bitAnd: 16r7) bitShift: shift + 32) bitAnd: 16rFFFFFFFF).		hi := hi bitShift: shift ]	! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 10/9/2016 04:16'!
+bitAnd: aSixtyFourBitRegister	"Replace my contents with the bitwise AND of the given register and my current contents."	hi := hi bitAnd: aSixtyFourBitRegister hi.	low := low bitAnd: aSixtyFourBitRegister low! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 10/9/2016 04:16'!
+bitInvert	"Replace my contents with the bitwise inverse my current contents."	hi := hi bitXor: 16rFFFFFFFF.	low := low bitXor: 16rFFFFFFFF.! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 10/9/2016 04:16'!
+bitOr: aSixtyFourBitRegister	"Replace my contents with the bitwise OR of the given register and my current contents."	hi := hi bitOr: aSixtyFourBitRegister hi.	low := low bitOr: aSixtyFourBitRegister low! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 10/9/2016 00:21'!
+bitXor: aSixtyFourBitRegister	"Replace my contents with the bitwise exclusive OR of the given register and my current contents."	hi := hi bitXor: aSixtyFourBitRegister hi.	low := low bitXor: aSixtyFourBitRegister low! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 10/9/2016 14:23'!
+leftRotateBy: bits	"Rotate my contents left by the given number of bits, retaining exactly 64 bits."	"Details: Perform this operation with no LargeInteger arithmetic."	| bitCount newHi |	bitCount := bits bitAnd: 63. "Modulo 64. This also makes this method work for negative arguments."	bitCount >= 32 ifTrue: [  "Swap the two words, so that at most 31 bits remain."		newHi := low.		low := hi.		hi := newHi.		bitCount := bitCount - 32 ].	bitCount >= 29 ifTrue: [ "Rotate exactly 29 bits."		bitCount := bitCount - 29.		newHi := ((hi bitAnd: 16r7) bitShift: 29) bitOr: (low bitShift: -3).		low := ((low bitAnd: 16r7) bitShift: 29) bitOr: (hi bitShift: -3).		hi := newHi ].	bitCount >= 1 ifTrue: [ "Rotate the remaining, at most 28, bits."		| shift |		shift := bitCount - 32.		newHi := ((hi bitShift: bitCount) bitAnd: 16rFFFFFFFF) bitOr: (low bitShift: shift).		low := ((low bitShift: bitCount) bitAnd: 16rFFFFFFFF) bitOr: (hi bitShift: shift).		hi := newHi ]! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'converting' stamp: 'ul 10/8/2016 23:52'!
+asInteger	"Answer the integer value of my current contents."	^ (hi bitShift: 32) + low! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'converting' stamp: 'ul 10/9/2016 14:28'!
+asSignedInteger	"Answer the signed integer value of my current contents."	hi >= 16r80000000 ifFalse: [ ^(hi bitShift: 32) + low ].	^-1 - (low bitXor: 16rFFFFFFFF) - ((hi bitXor: 16rFFFFFFFF) bitShift: 32)! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'comparing' stamp: 'ul 10/9/2016 14:26'!
+< aSixtyFourBitRegister64	^hi < aSixtyFourBitRegister64 hi or: [		hi = aSixtyFourBitRegister64 hi and: [			low < aSixtyFourBitRegister64 low ] ]! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'comparing' stamp: 'ul 10/9/2016 14:26'!
+<= aSixtyFourBitRegister64	^hi < aSixtyFourBitRegister64 hi or: [		hi = aSixtyFourBitRegister64 hi and: [			low <= aSixtyFourBitRegister64 low ] ]! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'comparing' stamp: 'ul 2/20/2018 22:28'!
+= anObject	self class == anObject class ifFalse: [ ^false ].	anObject low = low ifFalse: [ ^false ].	anObject hi = hi ifFalse: [ ^false ].	^true! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'comparing' stamp: 'ul 10/9/2016 14:27'!
+> aSixtyFourBitRegister64	^hi > aSixtyFourBitRegister64 hi or: [		hi = aSixtyFourBitRegister64 hi and: [			low > aSixtyFourBitRegister64 low ] ]! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'comparing' stamp: 'ul 10/9/2016 14:27'!
+>= aSixtyFourBitRegister64	^hi > aSixtyFourBitRegister64 hi or: [		hi = aSixtyFourBitRegister64 hi and: [			low >= aSixtyFourBitRegister64 low ] ]! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'comparing' stamp: 'ul 10/9/2016 14:27'!
+hash	^(low bitShift: 28) bitXor: hi! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'storing' stamp: 'ul 2/20/2018 22:38'!
+storeInto: aByteArray at: index bigEndian: bigEndian	bigEndian		ifTrue: [			aByteArray				at: index put: (hi bitShift: -24);				at: index + 1 put: ((hi bitShift: -16) bitAnd: 16rFF);				at: index + 2 put: ((hi bitShift: -8) bitAnd: 16rFF);				at: index + 3 put: (hi bitAnd: 16rFF);				at: index + 4 put: (low bitShift: -24);				at: index + 5 put: ((low bitShift: -16) bitAnd: 16rFF);				at: index + 6 put: ((low bitShift: -8) bitAnd: 16rFF);				at: index + 7 put: (low bitAnd: 16rFF) ]		ifFalse: [			aByteArray				at: index + 7 put: (hi bitShift: -24);				at: index + 6 put: ((hi bitShift: -16) bitAnd: 16rFF);				at: index + 5 put: ((hi bitShift: -8) bitAnd: 16rFF);				at: index + 4 put: (hi bitAnd: 16rFF);				at: index + 3 put: (low bitShift: -24);				at: index + 2 put: ((low bitShift: -16) bitAnd: 16rFF);				at: index + 1 put: ((low bitShift: -8) bitAnd: 16rFF);				at: index put: (low bitAnd: 16rFF) ]		! !
+
+!RGSixtyFourBitRegister64 methodsFor: 'loading' stamp: 'ul 2/20/2018 22:38'!
+loadFrom: aByteArray at: index bigEndian: bigEndian	bigEndian		ifTrue: [			hi := ((((aByteArray at: index) bitShift: 8) + ( aByteArray at: index + 1) bitShift: 8) + (aByteArray at: index + 2) bitShift: 8) + (aByteArray at: index + 3).			low := ((((aByteArray at: index + 4) bitShift: 8) + ( aByteArray at: index + 5) bitShift: 8) + (aByteArray at: index + 6) bitShift: 8) + (aByteArray at: index + 7) ]		ifFalse: [			hi := ((((aByteArray at: index + 7) bitShift: 8) + ( aByteArray at: index + 6) bitShift: 8) + (aByteArray at: index + 5) bitShift: 8) + (aByteArray at: index + 4).			low := ((((aByteArray at: index + 3) bitShift: 8) + ( aByteArray at: index + 2) bitShift: 8) + (aByteArray at: index + 1) bitShift: 8) + (aByteArray at: index) ]		! !
+
+!RGThirtyTwoBitRegister class methodsFor: 'system startup' stamp: 'ul 2/18/2018 18:19'!
+startUp: resuming	"Recalculate the class for platform when the image starts, so that converted images will have their values set properly."	resuming ifTrue: [ self initialize ]! !
+
+!RGThirtyTwoBitRegister class methodsFor: 'class initialization' stamp: 'ul 2/21/2018 01:33'!
+initialize	ClassForPlatform := self is64BitPlatform		ifFalse: [ RGThirtyTwoBitRegister32 ]		ifTrue: [ RGThirtyTwoBitRegister64 ].	Smalltalk addToStartUpList: self! !
+
+!RGThirtyTwoBitRegister class methodsFor: 'instance creation' stamp: 'ul 2/13/2018 20:19'!
+newForPlatform	^ClassForPlatform new! !
+
+!RGThirtyTwoBitRegister class methodsFor: 'instance creation' stamp: 'ul 2/13/2018 20:21'!
+newForPlatformWith: aPositiveInteger	"Answer a new instance whose initial contents is copied from aPositiveInteger.	It is required that aPositiveInteger has no more than 64 bits."	^ClassForPlatform basicNew load: aPositiveInteger! !
+
+!RGThirtyTwoBitRegister class methodsFor: 'instance creation' stamp: 'ul 2/20/2018 22:27'!
+newForPlayformFromByteArray: aByteArray at: startIndex bigEndian: bigEndian	"Answer a new instance whose initial contents is copied from next four bytes from aByteArray starting at startIndex."	^ClassForPlatform basicNew loadFrom: aByteArray at: startIndex bigEndian: bigEndian! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accessing' stamp: 'jm 12/7/1999 15:26'!
+hi	^ hi! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accessing' stamp: 'nice 8/28/2010 22:34'!
+load: anInteger	"Set my contents to the value of given integer."	(anInteger positive and: [anInteger digitLength <= 4])		ifFalse: [self error: 'out of range: ', anInteger printString].	low := anInteger bitAnd: 16rFFFF.	hi := (anInteger bitShift: -16) bitAnd: 16rFFFF! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accessing' stamp: 'ul 4/11/2015 04:01'!
+loadFrom: aThirtyTwoBitRegister	"Set my contents from the given ThirtyTwoBitRegister."	hi := aThirtyTwoBitRegister hi.	low := aThirtyTwoBitRegister low! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accessing' stamp: 'jm 12/7/1999 15:26'!
+low	^ low! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 4/11/2015 02:24'!
+*= aThirtTwoBitRegister	"Replace my contents with the product of the given register and my current contents."	| otherLow otherHi mul newLow newHi |	otherLow := aThirtTwoBitRegister low.	otherHi := aThirtTwoBitRegister hi.	"Multiply low with otherLow. Process the two highest bits of low separately if necessary to avoid LargeInteger operations."	(low bitShift: -8) * (otherLow bitShift: -8) > 16r3FFF		ifTrue: [ 			mul := (low bitAnd: 16r3FFF) * otherLow. "Without the two most significant bits of low."			newLow := (mul bitAnd: 16rFFFF).			newHi := (mul bitShift: -16).			mul := (low bitShift: -14) * otherLow. "The two most significant bits of low"			newLow := newLow + ((mul bitAnd: 16r3) bitShift: 14).			newHi := newHi + (mul bitShift: -2) + (newLow bitShift: -16) "Carry from newLow" ]		ifFalse: [			newLow := low * otherLow. "We'll trim newLow at the end of the method."			newHi := newLow bitShift: -16 ].	"Multiply hi with otherLow."	(hi bitShift: -8) * (otherLow bitShift: -8) > 16r3FFF		ifTrue: [			newHi := newHi + 				((hi bitAnd: 16r3FFF) * otherLow bitAnd: 16rFFFF) +				(((hi bitShift: -14) * otherLow bitAnd: 16r3) bitShift: 14) ]		ifFalse: [ newHi := newHi + (hi * otherLow bitAnd: 16rFFFF) ].	"Multiply low with otherHi."	(low bitShift: -8) * (otherHi bitShift: -8) > 16r3FFF		ifTrue: [			newHi := newHi + 				((low bitAnd: 16r3FFF) * otherHi bitAnd: 16rFFFF) +				(((low bitShift: -14) * otherHi bitAnd: 16r3) bitShift: 14) ]		ifFalse: [ newHi := newHi + (low * otherHi bitAnd: 16rFFFF) ].	"Truncate and store the results."	hi := newHi bitAnd: 16rFFFF.	low := newLow bitAnd: 16rFFFF ! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'jm 12/7/1999 15:36'!
++= aThirtTwoBitRegister	"Replace my contents with the sum of the given register and my current contents."	| lowSum |	lowSum := low + aThirtTwoBitRegister low.	hi := (hi + aThirtTwoBitRegister hi + (lowSum bitShift: -16)) bitAnd: 16rFFFF.	low := lowSum bitAnd: 16rFFFF.! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 4/11/2015 04:39'!
+<< anInteger	"Unsigned left shift."	| bitCount |	bitCount := anInteger.	bitCount >= 32 ifTrue: [		hi := low := 0.		^self ].	bitCount >= 16 ifTrue: [		hi := low.		low := 0.		bitCount := bitCount - 16 ].	bitCount >= 15 ifTrue: [		hi := ((hi bitAnd: 1) bitShift: 15) bitOr: (low bitShift: -1).		low := (low bitAnd: 1) bitShift: 15.		^self ].	bitCount >= 1 ifTrue: [		hi := ((hi bitShift: bitCount) bitAnd: 16rFFFF) bitOr: (low bitShift: bitCount - 16).		low := (low bitShift: bitCount) bitAnd: 16rFFFF ]! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 4/10/2015 20:54'!
+>> anInteger	"Unsigned right shift."	| bitCount shift |	bitCount := anInteger.	bitCount >= 32 ifTrue: [		hi := low := 0.		^self ].	bitCount >= 16 ifTrue: [		low := hi.		hi := 0.		bitCount := bitCount - 16 ].	bitCount >= 2 ifTrue: [		shift := 0 - bitCount.		low := (low bitShift: shift) bitOr: ((hi bitShift: shift + 16) bitAnd: 16rFFFF).		hi := hi bitShift: shift.		^self ].	bitCount >= 1 ifTrue: [		low := (low bitShift: -1) bitOr: ((hi bitAnd: 16r1) bitShift: 15).		hi := hi bitShift: -1 ]! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'jm 12/7/1999 15:41'!
+bitAnd: aThirtTwoBitRegister	"Replace my contents with the bitwise AND of the given register and my current contents."	hi := hi bitAnd: aThirtTwoBitRegister hi.	low := low bitAnd: aThirtTwoBitRegister low.! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'jm 12/7/1999 15:40'!
+bitInvert	"Replace my contents with the bitwise inverse my current contents."	hi := hi bitXor: 16rFFFF.	low := low bitXor: 16rFFFF.! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'jm 12/7/1999 15:40'!
+bitOr: aThirtTwoBitRegister	"Replace my contents with the bitwise OR of the given register and my current contents."	hi := hi bitOr: aThirtTwoBitRegister hi.	low := low bitOr: aThirtTwoBitRegister low.! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'jm 12/7/1999 15:38'!
+bitXor: aThirtTwoBitRegister	"Replace my contents with the bitwise exclusive OR of the given register and my current contents."	hi := hi bitXor: aThirtTwoBitRegister hi.	low := low bitXor: aThirtTwoBitRegister low.! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'accumulator ops' stamp: 'ul 2/12/2018 23:19'!
+leftRotateBy: bits	"Rotate my contents left by the given number of bits, retaining exactly 32 bits."	| bitCount newHi |	bitCount := bits bitAnd: 16r1F.	bitCount >= 16 ifTrue: [		newHi := low.		low := hi.		hi := newHi.		bitCount := bitCount - 16 ].	bitCount >= 15 ifTrue: [		newHi := ((hi bitAnd: 16r1) bitShift: 15) bitOr: (low bitShift: -1).		low := ((low bitAnd: 16r1) bitShift: 15) bitOr: (hi bitShift: -1).		hi := newHi.		^self ].	bitCount >= 1 ifTrue: [		| shift |		shift := bitCount - 16.		newHi := ((hi bitShift: bitCount) bitAnd: 16rFFFF) bitOr: (low bitShift: shift).		low := ((low bitShift: bitCount) bitAnd: 16rFFFF) bitOr: (hi bitShift: shift).		hi := newHi ]! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'converting' stamp: 'jm 12/14/1999 16:03'!
+asInteger	"Answer the integer value of my current contents."	^ (hi bitShift: 16) + low! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'converting' stamp: 'ul 4/10/2015 20:52'!
+asSignedInteger	"Answer the signed integer value of my current contents."	hi >= 16r8000 ifFalse: [ ^(hi bitShift: 16) + low ].	^-1 - (low bitXor: 16rFFFF) - ((hi bitXor: 16rFFFF) bitShift: 16)! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'comparing' stamp: 'ul 4/11/2015 04:50'!
+< aThirtyTwoBitRegister	^hi < aThirtyTwoBitRegister hi or: [		hi = aThirtyTwoBitRegister hi and: [			low < aThirtyTwoBitRegister low ] ]! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'comparing' stamp: 'ul 4/11/2015 04:51'!
+<= aThirtyTwoBitRegister	^hi < aThirtyTwoBitRegister hi or: [		hi = aThirtyTwoBitRegister hi and: [			low <= aThirtyTwoBitRegister low ] ]! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'comparing' stamp: 'ul 2/20/2018 22:29'!
+= anObject	self class == anObject class ifFalse: [ ^false ].	anObject low = low ifFalse: [ ^false ].	anObject hi = hi ifFalse: [ ^false ].	^true! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'comparing' stamp: 'ul 4/11/2015 04:51'!
+> aThirtyTwoBitRegister	^hi > aThirtyTwoBitRegister hi or: [		hi = aThirtyTwoBitRegister hi and: [			low > aThirtyTwoBitRegister low ] ]! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'comparing' stamp: 'ul 4/11/2015 04:51'!
+>= aThirtyTwoBitRegister	^hi > aThirtyTwoBitRegister hi or: [		hi = aThirtyTwoBitRegister hi and: [			low >= aThirtyTwoBitRegister low ] ]! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'comparing' stamp: 'ul 4/6/2015 03:06'!
+hash	^((hi bitShift: 14) bitXor: low) hashMultiply! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'storing' stamp: 'ul 2/20/2018 22:39'!
+storeInto: aByteArray at: index bigEndian: bigEndian	bigEndian		ifTrue: [			aByteArray				at: index put: (hi bitShift: -8);				at: index + 1 put: (hi bitAnd: 16rFF);				at: index + 2 put: (low bitShift: -8);				at: index + 3 put: (low bitAnd: 16rFF) ]		ifFalse: [			aByteArray				at: index + 3 put: (hi bitShift: -8);				at: index + 2 put: (hi bitAnd: 16rFF);				at: index + 1 put: (low bitShift: -8);				at: index put: (low bitAnd: 16rFF) ]! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'initialize-release' stamp: 'ul 2/6/2018 19:45'!
+initialize	low := hi := 0! !
+
+!RGThirtyTwoBitRegister32 methodsFor: 'loading' stamp: 'ul 2/20/2018 22:23'!
+loadFrom: aByteArray at: index bigEndian: bigEndian	bigEndian		ifTrue: [			hi := ((aByteArray at: index) bitShift: 8) + (aByteArray at: index + 1).			low := ((aByteArray at: index + 2) bitShift: 8) + (aByteArray at: index + 3) ]		ifFalse: [ 			hi := ((aByteArray at: index + 3) bitShift: 8) + (aByteArray at: index + 2).			low := ((aByteArray at: index + 1) bitShift: 8) + (aByteArray at: index) ]! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accessing' stamp: 'ul 2/6/2018 10:34'!
+hi	^value bitShift: -16! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accessing' stamp: 'ul 2/6/2018 10:31'!
+load: anInteger	"Set my contents to the value of given integer."	0 <= anInteger ifFalse: [ self error: 'out of range: ', anInteger printString ].	anInteger <= 16rFFFFFFFF ifFalse: [ self error: 'out of range: ', anInteger printString ].	value := anInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accessing' stamp: 'ul 2/18/2018 22:13'!
+loadFrom: aThirtyTwoBitRegister	"Set my contents from the given ThirtyTwoBitRegister."	value := aThirtyTwoBitRegister asInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accessing' stamp: 'ul 2/6/2018 10:33'!
+low	^value bitAnd: 16rFFFF! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/6/2018 20:53'!
+*= aThirtTwoBitRegister	"Replace my contents with the product of the given register and my current contents."	| low hi otherLow otherHi |	otherLow := aThirtTwoBitRegister asInteger.	otherHi := otherLow bitShift: -30.	otherLow := otherLow bitAnd: 16r3FFFFFFF.	hi := value bitShift: -30.	low := value bitAnd: 16r3FFFFFFF.	value := (low * otherLow bitAnd: 16rFFFFFFFF) + (((otherLow * hi) + (otherHi * low) bitAnd: 16r3) bitShift: 30) bitAnd: 16rFFFFFFFF! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/6/2018 11:11'!
++= aThirtTwoBitRegister	"Replace my contents with the sum of the given register and my current contents."	value := value + aThirtTwoBitRegister asInteger bitAnd: 16rFFFFFFFF! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/6/2018 20:45'!
+<< anInteger	"Unsigned left shift."	anInteger >= 32 ifTrue: [		value := 0.		^self ].	anInteger >= 1 ifTrue: [		value := (value bitAnd: (1 bitShift: 32 - anInteger) - 1) bitShift: anInteger ]! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/6/2018 11:11'!
+>> anInteger	"Unsigned right shift."	value := value bitShift: 0 - anInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/6/2018 11:08'!
+bitAnd: aThirtTwoBitRegister	"Replace my contents with the bitwise AND of the given register and my current contents."	value := value bitAnd: aThirtTwoBitRegister asInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/6/2018 11:08'!
+bitInvert	"Replace my contents with the bitwise inverse my current contents."	value := value bitXor: 16rFFFFFFFF! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/6/2018 11:08'!
+bitOr: aThirtTwoBitRegister	"Replace my contents with the bitwise OR of the given register and my current contents."	value := value bitOr: aThirtTwoBitRegister asInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/6/2018 11:07'!
+bitXor: aThirtTwoBitRegister	"Replace my contents with the bitwise exclusive OR of the given register and my current contents."	value := value bitXor: aThirtTwoBitRegister asInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'accumulator ops' stamp: 'ul 2/12/2018 23:25'!
+leftRotateBy: bits	"Rotate my contents left by the given number of bits, retaining exactly 32 bits."	| bitCount |	bitCount := bits bitAnd: 16r1F.	bitCount >= 29 ifTrue: [ "Rotate right"		value := (value bitShift: bitCount - 32) bitOr: (((value bitAnd: 16rF) bitShift: bitCount) bitAnd: 16rFFFFFFFF).		^self ].	value := ((value bitShift: bitCount) bitAnd: 16rFFFFFFFF) bitOr: (value bitShift: bitCount - 32)! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'converting' stamp: 'ul 2/6/2018 10:32'!
+asInteger	"Answer the integer value of my current contents."	^value! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'converting' stamp: 'ul 2/6/2018 11:09'!
+asSignedInteger	"Answer the signed integer value of my current contents."	value > 16r7FFFFFFF ifFalse: [ ^value ].	^value - 16r100000000! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'comparing' stamp: 'ul 2/6/2018 11:12'!
+< aThirtyTwoBitRegister	^value < aThirtyTwoBitRegister asInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'comparing' stamp: 'ul 2/6/2018 11:12'!
+<= aThirtyTwoBitRegister	^value <= aThirtyTwoBitRegister asInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'comparing' stamp: 'ul 2/20/2018 22:29'!
+= anObject	anObject class == self class ifFalse: [ ^false ].	anObject asInteger = value ifFalse: [ ^false ].	^true! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'comparing' stamp: 'ul 2/6/2018 11:11'!
+> aThirtyTwoBitRegister	^value > aThirtyTwoBitRegister asInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'comparing' stamp: 'ul 2/6/2018 11:11'!
+>= aThirtyTwoBitRegister	^value >= aThirtyTwoBitRegister asInteger! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'comparing' stamp: 'ul 2/6/2018 11:07'!
+hash	^value hashMultiply! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'storing' stamp: 'ul 2/20/2018 22:39'!
+storeInto: aByteArray at: index bigEndian: bigEndian	bigEndian		ifTrue: [			aByteArray				at: index put: (value bitShift: -24);				at: index + 1 put: ((value bitShift: -16) bitAnd: 16rFF);				at: index + 2 put: ((value bitShift: -8) bitAnd: 16rFF);				at: index + 3 put: (value bitAnd: 16rFF) ]		ifFalse: [			aByteArray				at: index + 3 put: (value bitShift: -24);				at: index + 2 put: ((value bitShift: -16) bitAnd: 16rFF);				at: index + 1 put: ((value bitShift: -8) bitAnd: 16rFF);				at: index put: (value bitAnd: 16rFF) ]! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'initialize-release' stamp: 'ul 2/6/2018 19:45'!
+initialize	value := 0! !
+
+!RGThirtyTwoBitRegister64 methodsFor: 'loading' stamp: 'ul 2/20/2018 22:21'!
+loadFrom: aByteArray at: index bigEndian: bigEndian	bigEndian		ifTrue: [			value := ((((aByteArray at: index) bitShift: 8) + ( aByteArray at: index + 1) bitShift: 8) + (aByteArray at: index + 2) bitShift: 8) + (aByteArray at: index + 3) ]		ifFalse: [			value := ((((aByteArray at: index + 3) bitShift: 8) + ( aByteArray at: index + 2) bitShift: 8) + (aByteArray at: index + 1) bitShift: 8) + (aByteArray at: index) ]! !
+
 !Object methodsFor: '*crypto-core' stamp: 'rabbt 12/26/2022 14:38'!
 deny: aBooleanOrBlock	self assert: aBooleanOrBlock value not! !
 
@@ -561,3 +1193,5 @@ byte1: hi1 byte2: hi2 byte3: low1 byte4: low2	^ super new byte1: hi1 byte2: hi2
 
 !ThirtyTwoBitRegister class methodsFor: '*crypto-core'!
 loadFrom: aByteArray at: index	^ super new loadFrom: aByteArray at: index! !
+RGSixtyFourBitRegister initialize!
+RGThirtyTwoBitRegister initialize!
